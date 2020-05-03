@@ -1,0 +1,71 @@
+       >>SOURCE FORMAT FREE
+IDENTIFICATION DIVISION.
+PROGRAM-ID. coboltut.
+AUTHOR. NANDO BINGANI .
+DATE-WRITTEN.April 28.
+ 
+ENVIRONMENT DIVISION.
+DATA DIVISION.
+FILE SECTION.
+WORKING-STORAGE SECTION.
+01 SampleData PIC X(10) VALUE 'Stuff'.
+01 JustLetters PIC AAA VALUE 'ABC'.
+01 JustNumbers PIC 9(4) VALUE 1234.
+01 SignedInt PIC S9999 VALUE -1234.
+01 PayCheck PIC 9(4) VALUE ZEROS.
+01 Customer.
+       02 Ident    PIC 9(3).
+       02 CustName PIC X(20).
+       02 DateOfBirth.
+           03 DOB PIC 99.
+           03 MOB PIC 99.
+           03 YOB PIC 9(4).
+01 Num1 PIC 9 VALUE 5.
+01 Num2 PIC 9 VALUE 4.
+01 Num3 PIC 9 VALUE 3.
+01 Ans PIC S999V99 VALUE 0.
+01 Rem PIC 9V99.
+
+PROCEDURE DIVISION.
+*>MOVING AND DISPLAYING ASSIGNED VARIABLES
+MOVE 'More stuff' TO SampleData.
+MOVE '123' TO SampleData.
+MOVE 123 TO SampleData.
+DISPLAY "Sample Data : "SampleData.
+DISPLAY "Pay Check : " PayCheck.
+MOVE '123Nando Bingani       16101998' TO Customer.
+DISPLAY CustName.
+DISPLAY DOB '/' MOB "/" YOB.
+
+*> ARITHMETIC SINGLE VALRIABLES
+DISPLAY "NUM1 " Num1 " NUM2 " Num2.
+ADD Num1 TO Num2 GIVING Ans.
+DISPLAY "Addition : " Ans.
+SUBTRACT Num1 FROM Num2 GIVING Ans.
+DISPLAY "Minus : " Ans.
+MULTIPLY Num1 BY Num2 GIVING Ans.
+DISPLAY "Multiplication : " Ans.
+DIVIDE Num1 INTO Num2 GIVING Ans.
+DISPLAY "Division : " Ans.
+DIVIDE Num1 INTO Num2 GIVING Ans REMAINDER Rem.
+DISPLAY "Division" Ans ' and Remainder is ' Rem.
+
+*> ARITHMETIC ON MORE THAN ONE VARIBALE
+ADD Num1,Num2 TO Num3 GIVING Ans.
+DISPLAY 'ANS' Ans.
+*>SHORTER VERSION
+ADD Num1,Num2,Num3 GIVING Ans.
+DISPLAY 'ANS' Ans.
+*>Traditional Alternative 
+COMPUTE Ans=Num1+Num2*Num3.
+DISPLAY Ans.
+*>Power
+COMPUTE Ans=Num1+Num2**Num3.
+DISPLAY "Power " Ans.
+COMPUTE Ans ROUNDED = 3/2.005 .
+DISPLAY "Rounded " Ans . 
+
+
+
+
+STOP RUN.

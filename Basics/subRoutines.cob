@@ -1,0 +1,24 @@
+       >>SOURCE FORMAT FREE
+*> Sub routines and separate programmes passing values back and forth.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. coboltut4.
+AUTHOR. NANDO BINGANI .
+DATE-WRITTEN.April 28.
+ 
+ENVIRONMENT DIVISION.
+
+DATA DIVISION.
+FILE SECTION.
+WORKING-STORAGE SECTION.
+       01 Num1 PIC 9 VALUE 5.
+       01 Num2 PIC 9 VALUE 4.
+       01 Sum1 PIC VALUE 99.
+
+PROCEDURE DIVISION.
+CALL 'GETSUM' USING Num1,Num2,Sum1.
+DISPLAY Num1 " + " Num2 " = " Sum1
+
+
+
+STOP RUN.
